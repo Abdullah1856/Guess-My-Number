@@ -3,10 +3,10 @@
 let secretNumber = Math.floor(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
-
-const showMessage = function (message) {
+const showMessage = function(message) {
   document.querySelector('.message').textContent = message;
 };
+
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -35,13 +35,15 @@ document.querySelector('.check').addEventListener('click', function () {
       score--;
       document.querySelector('.score').textContent = score;
     } else {
-      document.querySelector('.message').textContent = 'You lost';
+      document.querySelector('.message').textContent = 'You lost😢';
       document.querySelector('.score').textContent = 0;
       document.querySelector('body').style.backgroundColor = '#ff0000';
+      document.querySelector('.check').style.display = 'none';
     }
   }
 });
 
+//Onclick Event
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
   secretNumber = Math.floor(Math.random() * 20) + 1;
@@ -51,4 +53,5 @@ document.querySelector('.again').addEventListener('click', function () {
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
+  document.querySelector('.check').style.display = 'block';
 });
